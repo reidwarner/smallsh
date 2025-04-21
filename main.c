@@ -37,7 +37,7 @@ int main() {
 
         // Handle built-in commands
         if (strcmp(cmd->argv[0], "exit") == 0) {
-            exit_shell(bg_child_pids);
+            exit_shell(bg_child_pids, NUM_CHILDREN);
             free_command(cmd);
             break;
         } else if (strcmp(cmd->argv[0], "cd") == 0) {
