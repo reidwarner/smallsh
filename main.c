@@ -25,8 +25,6 @@ int main() {
         sigSTP = 0;  // reset SIGTSTP flag for each command
 
         // Prompt and parse user input
-        printf(": ");
-        fflush(stdout);
         cmd = parse_input();
 
         // Skip empty commands or comments
