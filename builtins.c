@@ -27,9 +27,13 @@ int change_directory(char* path) {
     } else if (path[0] == '/') {
         chdir(path);
     } else {
-        char new_path[1024];
-        snprintf(new_path, sizeof(new_path), "%s/%s", cwd, path);
-        chdir(new_path);
+        size_t new_path_len = strlen(cwd) + strlen(path) + 2;
+        char* new_path = malloc(new_path_len);
+        if (new_path != NULL) {
+            snprintf(new_path, new_path_len, "%s/%s", cwd, path);
+            chdir(new_path);
+            free(new_path);
+        }
     }
     return 0;
 }
